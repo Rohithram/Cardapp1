@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setOnItemSelectedListener(this);
 // Create an ArrayAdapter using the string array and a default spinner layout
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Choices);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, Choices);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (card_no.get(j) % 2 == 0) {
                     card_no.remove(j);
                     customAdapter.notifyItemRemoved(j);
-                    customAdapter.notifyItemRangeChanged(0,card_no.size());
+                    customAdapter.notifyItemRangeChanged(j,card_no.size());
                     customAdapter.notifyDataSetChanged();
                 }
 
@@ -84,10 +84,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         else if(position==2){
             for( int j=0;j<card_no.size();j++){
-                if(card_no.get(j)%2!=0){
+                if(((card_no.get(j))%2)!=0){
                     card_no.remove(j);
                     customAdapter.notifyItemRemoved(j);
-                    customAdapter.notifyItemRangeChanged(0,card_no.size());
+                    customAdapter.notifyItemRangeChanged(j,card_no.size());
                     customAdapter.notifyDataSetChanged();
                 }
 
