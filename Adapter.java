@@ -38,10 +38,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     }
 
 
-    public Adapter(Context context, List<Integer> card_no){
+    public Adapter(Context context, List<Integer> card_no,List<Integer>dupcard_no){
         this.context = context;
         this.card_no = card_no;
-        this.dupcard_no=card_no;
+        this.dupcard_no=dupcard_no;
     }
 
 
@@ -57,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         holder.tv_cardno.setText("Cardno :" + card_no.get(position));
 
         if(card_no.get(position)%2==0){
-        holder.itemView.setBackgroundColor(Color.parseColor("#e0f2f1"));}
+            holder.itemView.setBackgroundColor(Color.parseColor("#e0f2f1"));}
         else
             holder.itemView.setBackgroundColor(Color.parseColor("#f3e5f5"));
 
@@ -66,8 +66,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 card_no.remove(position);
+                dupcard_no.remove(position);
                 notifyItemRemoved(position);
-                notifyItemRangeChanged(position, card_no.size());}
+                notifyItemRangeChanged(position, card_no.size());
+                notifyItemRangeChanged(position,dupcard_no.size());}
         });
     }
 

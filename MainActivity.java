@@ -49,14 +49,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         for(int i=0;i<100;i++) {
             card_no.add(i+1);
+            dupcard_no.add(i+1);
         }
 
-        customAdapter = new Adapter(this,card_no);
+        customAdapter = new Adapter(this,card_no,dupcard_no);
         rv_list.setAdapter(customAdapter);
 
-        for(int i=0;i<card_no.size();i++){
-            dupcard_no.add(card_no.get(i));
-        }
+
     }
 
     @Override
