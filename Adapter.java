@@ -68,8 +68,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
                 card_no.remove(position);
                 dupcard_no.remove(position);
                 notifyItemRemoved(position);
+                notifyItemRemoved(position);
                 notifyItemRangeChanged(position, card_no.size());
-                notifyItemRangeChanged(position,dupcard_no.size());}
+                notifyDataSetChanged();
+                notifyItemRangeChanged(position,dupcard_no.size());
+                notifyDataSetChanged();}
         });
     }
 

@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         }
         else if(position==1){
+            card_no.clear();
+            card_no.addAll(dupcard_no);
+            customAdapter.notifyDataSetChanged();
             for(int j=0;j<card_no.size();j++){
                 if (card_no.get(j) % 2 == 0) {
                     card_no.remove(j);
@@ -77,11 +80,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     customAdapter.notifyDataSetChanged();
                 }
 
+
             }
 
 
         }
         else if(position==2){
+            card_no.clear();
+            card_no.addAll(dupcard_no);
+            customAdapter.notifyDataSetChanged();
             for( int j=0;j<card_no.size();j++){
                 if(((card_no.get(j))%2)!=0){
                     card_no.remove(j);
@@ -89,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     customAdapter.notifyItemRangeChanged(j,card_no.size());
                     customAdapter.notifyDataSetChanged();
                 }
+
 
             }
         }
